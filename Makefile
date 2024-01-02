@@ -8,7 +8,7 @@ install-tools:
 ## test: runs all tests
 test:
 	@echo "Running tests..."
-	@go test -v -race ./...
+	@gotest -v -race ./...
 
 .PHONY: build
 ## build: builds the binary
