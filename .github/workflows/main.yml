@@ -6,8 +6,6 @@ name: Builds
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
 
@@ -19,16 +17,7 @@ jobs:
       uses: actions/setup-go@v4
       with:
         go-version: '1.21'
-    - run: make generate
+    - run: make install-tools
     - run: make lint
-    - run: make build
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up Go
-      uses: actions/setup-go@v4
-      with:
-        go-version: '1.21'
     - run: make test
+    - run: make build
